@@ -8,13 +8,13 @@
 
 ## 속성 목록
 
-### <cookie-name>=<cookie-value>
+### \<cookie-name\>=\<cookie-value\>
 
 * 쿠키 이름이 `_Secure-`로 시작한다면 secure 플래그를 설정해줘야 함
 
 * 쿠키 이름이 `_Host-`로 시작한다면 secure 플래그를 설정해줘야 하고, 도메인 속성이 설정되지 않아야 하며, path는 `/`이어야 함
 
-### Expires=<date>
+### Expires=\<date\>
 
 * 쿠키가 만료되는 날짜
 
@@ -22,19 +22,19 @@
 
     (브라우저가 닫히면 사라짐)
 
-### Max-Age=<number>
+### Max-Age=\<number\>
 
 * 쿠키 유효기간을 초 단위로 표현한 값
 
 * `Expires`와 동시에 설정되면 `Max-age`값을 사용함
 
-### Domain=<domain value>
+### Domain=\<domain value\>
 
 * 기본값은 현재 도메인
 
 * 멀티 호스트 지원안함 (단, 주어진 도메인의 서브도메인들은 항상 포함됨)
 
-### Path=<path-value>
+### Path=\<path-value\>
 
 ### Secure
 
@@ -48,7 +48,7 @@
 
 * xss 공격을 방지할 수 있음
 
-### SameSite=<samesite-value>
+### SameSite=\<samesite-value\>
 
 * cors 요청 보낼 때 쿠키를 같이 보낼지 결정함
 
