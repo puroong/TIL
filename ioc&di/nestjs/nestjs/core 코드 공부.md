@@ -35,10 +35,22 @@ public async create<T extends INestApplication = INestApplication>(
 > 
 > serverOptions이 옵션인 경우, createHttpAdapter로 ExpressAdapter 인스턴스를 생성함
 
-2. ApplicationConfig 인스턴스를 생성함
+2. ApplicationConfig 인스턴스를 생성함 (전역 pipe, guard, transformer 등에 대한 정보 가지고 있음)
 
-3. NestContainer 인스턴스를 생성함
+3. NestContainer 인스턴스를 생성함 (module 정보 가지고 있음)
 
 4. 옵션으로 주어진 abortOnError값을 abortOnError 필드에 저장함
 
 5. 옵션에 로깅 설정이 주어지지 않았다면 `Logger.overrideLogger`를 호출함
+
+6. initialize 시작
+    * container.setHttpAdapter(httpServer)
+    * httpServer.init()
+    * dependenciesScanner.scan(module)
+        * container.createCoreModule // InternalCoreModule에 ExternalContextCreator, ModulesContainer, HttpAdapterHost
+        * scanForModules(module) // 
+        * registerCoreModuleRef
+    * instanceLoader.createInstanceOfDependencies
+        * container.getModules()
+        * createPrototypes(modules);
+        * createInstances
